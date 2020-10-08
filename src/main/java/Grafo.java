@@ -162,10 +162,26 @@ public class Grafo {
         matrizPesos.get(fila).set(columna,valor);
     }
 
+    public void agregarVertice(){
+        matrizAdyacencia.add(new ArrayList<>());    //se inicializa fila del vertice "cantVertices" en las 2 matrices
+        matrizPesos.add(new ArrayList<>());
+        for (int i=0; i<cantVertices; i++){    //bucle que agrega una columna adicional a cada fila de las 2 matrices
+            matrizAdyacencia.get(i).add(0);
+            matrizPesos.get(i).add(pesoMax);
+        }
+        for (int i=0; i<cantVertices + 1; i++){
+            matrizAdyacencia.get(cantVertices).add(0);     //se llena la fila "cantVertices" con ceros
+            matrizPesos.get(cantVertices).add(pesoMax);   //se llena la fila "cantVertices" con pesos máximos
+        }
+        cantVertices++;
+    }
+
     public void eliminarVertice(int v){
         matrizAdyacencia.remove(v);
-        for (List<Integer> integers : matrizAdyacencia) {
-            integers.remove(v);
+        matrizPesos.remove(v);
+        for (int i=0; i<cantVertices; i++){
+            matrizAdyacencia.get(i).remove(v);
+            matrizPesos.get(i).remove(v);
         }
         cantVertices--;
     }
