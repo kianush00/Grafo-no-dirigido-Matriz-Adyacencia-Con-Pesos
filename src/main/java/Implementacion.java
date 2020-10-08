@@ -7,5 +7,6 @@ public class Implementacion {
         g.agregarArista(3,4,10);
         g.agregarArista(4,5,10);
         g.imprimirMatrizAdyacencia();
+
     }
 }

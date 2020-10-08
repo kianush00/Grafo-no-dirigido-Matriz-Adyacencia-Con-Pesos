@@ -161,4 +161,12 @@ public class Grafo {
     public void establecerPesoMatrizPesos(double valor, int fila, int columna){
         matrizPesos.get(fila).set(columna,valor);
     }
+
+    public void eliminarVertice(int v){
+        matrizAdyacencia.remove(v);
+        for (List<Integer> integers : matrizAdyacencia) {
+            integers.remove(v);
+        }
+        cantVertices--;
+    }
 }
