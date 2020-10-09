@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/* Esta clase contiene la representación de una grafo no dirigido con pesos por medio
+/* Esta clase contiene la representación de una grafo no dirigido ponderado por medio
 *  de las matrices de adyacencia y peso
 *
 *  @author Kianush Atighi-Moghaddam
@@ -9,10 +9,9 @@ import java.util.List;
 
 public class Grafo {
     private int cantVertices;
-    final private double pesoMax = 9999.0;      //límite superior del valor correspondiente al peso de cada arista
+    final private int pesoMax = 9999;      //límite superior del valor correspondiente al peso de cada arista
     private List<List<Integer>> matrizAdyacencia = new ArrayList<>();  //matriz de adyacencia
-    private List<List<Double>> matrizPesos = new ArrayList<>();   //matriz de pesos
-    private List<Double> etiquetasVertices = new ArrayList<>();
+    private List<List<Integer>> matrizPesos = new ArrayList<>();   //matriz de pesos
 
     //Método constructor que inicializa la matriz de adyacencia y la matriz de pesos de tamaño "cantVertices" con ceros
     public Grafo(int cantVertices){
@@ -29,7 +28,7 @@ public class Grafo {
     }
 
     //Método que agrega una arista junto con su peso a la matriz de adyacencia
-    public void agregarArista(int v1, int v2, double peso) throws IllegalArgumentException ,
+    public void agregarArista(int v1, int v2, int peso) throws IllegalArgumentException ,
             ArrayIndexOutOfBoundsException{
         if(peso <=0){
             throw new IllegalArgumentException();
@@ -151,7 +150,7 @@ public class Grafo {
         return (this.matrizAdyacencia.get(v1).get(v2) != 0);
     }
 
-    public double obtenerPesoArista(int v1, int v2) throws ArrayIndexOutOfBoundsException{
+    public int obtenerPesoArista(int v1, int v2) throws ArrayIndexOutOfBoundsException{
         return this.matrizPesos.get(v1).get(v2);
     }
 
@@ -161,8 +160,8 @@ public class Grafo {
     }
 
     //Método que asigna un valor numérico a la matriz de pesos, en la fila y columna correspondientes
-    public void establecerPesoMatrizPesos(double valor, int fila, int columna){
-        this.matrizPesos.get(fila).set(columna,valor);
+    public void establecerPesoMatrizPesos(int peso, int fila, int columna){
+        this.matrizPesos.get(fila).set(columna,peso);
     }
 
     public void agregarVertice(){

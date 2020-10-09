@@ -1,6 +1,7 @@
 public class Implementacion {
     public static void main(String[] args) {
         Grafo g = new Grafo(6);
+        Grafo g2 = new Grafo(6);
         g.agregarArista(0,1,10);
         g.agregarArista(1,2,10);
         g.agregarArista(2,3,10);
